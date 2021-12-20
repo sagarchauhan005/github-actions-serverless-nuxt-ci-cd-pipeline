@@ -23,7 +23,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sagarchauhan005/nuxt-serverless-installer.git"
+    "url": "git+https://github.com/sagarchauhan005/github-actions-serverless-nuxt-ci-cd-pipeline.git"
   },
   "keywords": [
     "serverless",
@@ -32,7 +32,7 @@
   ],
   "author": "Sagar Chauhan",
   "bugs": {
-    "url": "https://github.com/sagarchauhan005/nuxt-serverless-installer/issues"
+    "url": "https://github.com/sagarchauhan005/github-actions-serverless-nuxt-ci-cd-pipeline/issues"
   },
-  "homepage": "https://github.com/sagarchauhan005/nuxt-serverless-installer#readme"
+  "homepage": "https://github.com/sagarchauhan005/github-actions-serverless-nuxt-ci-cd-pipeline#readme"
 }
