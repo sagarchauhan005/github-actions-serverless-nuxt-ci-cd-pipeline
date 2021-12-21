@@ -1,7 +1,7 @@
 {
   "name": "github-actions-serverless-pipeline",
   "description": "A serverless pipeline for GitHub Actions",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
