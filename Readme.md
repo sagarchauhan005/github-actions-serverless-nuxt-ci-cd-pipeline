@@ -33,6 +33,26 @@ A simple GitHub actions serverless pipeline setup for a simple serverless functi
     ```
 5. That's it! Push the changes to your branch, and you are ready to go.
 
+# How to read github-actions-setup.yml file?
+
+* Make sure you have added AWS secrets to your specific repository or organization. 
+* ![Imgur](https://i.imgur.com/SQlTRZm.jpg)
+
+* Make sure you have a `make file` in your project root directory which has all the commands to build your project.
+* ![Imgur](https://i.imgur.com/KQVHWUo.jpg)
+
+* Comment / Uncomment the following snippet if you don't need to install PHP or customize it as per your need. Use this to install any language or package you need.
+* ![Imgur](https://i.imgur.com/bumTO4E.jpg)
+
+* Comment / Uncomment the following snippet if you don't need any Laravel Mix package to build production assets.
+* ![Imgur](https://i.imgur.com/tE15aO8.jpg)
+
+* This section sets up the node environment for you to run npm commands.
+* ![Imgur](https://i.imgur.com/Q7kpKI9.jpg)
+
+* This step allows you to read files at your root directory or local directory such as we use `make` file
+* ![Imgur](https://i.imgur.com/Ksf3sdy.jpg)
+
 # Customization
 
 You can easily customize the deployment process by adding your own commands to the `Makefile` file.
@@ -41,7 +61,7 @@ You can easily customize the deployment process by adding your own commands to t
 
 [Sagar Chauhan](https://twitter.com/sagarchauhan005) works as a Project Manager - Technology at [Greenhonchos](https://www.greenhonchos.com).
 In his spare time, he hunts bug as a Bug Bounty Hunter.
-Follow him at [Instagram](https://www.instagram.com/chauhansahab005/), [Twitter](https://twitter.com/chauhansahab005),  [Facebook](https://facebook.com/sagar.chauhan3),
+Follow him at [Instagram](https://www.instagram.com/sagarchauhan005/), [Twitter](https://twitter.com/sagarchauhan005),  [Facebook](https://facebook.com/sagar.chauhan3),
 [Github](https://github.com/sagarchauhan005)
 
 # License

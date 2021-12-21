@@ -13,7 +13,7 @@ const gentlyCopy = require('gently-copy');
 const filesToCopy = ['src/.github'];
 
 //  local directory
-const copyPath = '../../../';
+const copyPath = '../../';
 
 
 // Moving files to user's local directory

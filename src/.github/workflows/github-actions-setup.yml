@@ -20,16 +20,43 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Install Serverless Framework
-      run: npm install -g serverless
-    - name: Run deployment
-      run: make deploy
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      # Allows access to local files
+      # Uncomment the following if not required
+      - uses: actions/checkout@v2
+
+      # Sets up node js environment and serverless framework
+      # Uncomment the following if not required
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Install Serverless Framework
+        run: npm install -g serverless
+
+      # This is only required if your project uses Laravel Mix to mix files
+      # Use this if you want to load some dependencies to build your project
+      - name: Install Laravel Mix
+        run: npm install laravel-mix
+
+      # Sets up php | laravel environment and composer framework
+      # Uncomment the following if not required
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "7.4"
+      - name: Install Composer
+        uses: "ramsey/composer-install@v1"
+        with:
+          composer-options: "--prefer-dist --optimize-autoloader --no-dev"
+
+      # Deploys the app using Makefile
+      # Uncomment the following if not required
+      - name: Run deployment
+        run: make deploy
+
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
