@@ -35,27 +35,46 @@ A simple GitHub actions serverless pipeline setup for a simple serverless functi
 
 # How to read github-actions-setup.yml file?
 
-Check your `github-actions-setup.yml` file in `.github/workflows/` directory to understand what all steps you need to set up.
+#### Check your `github-actions-setup.yml` file in `.github/workflows/` directory to understand what all steps you need to set up.
 
-![Imgur](https://i.imgur.com/txRbDQK.jpg)
+![Imgur](https://i.imgur.com/VL3MvFR.jpg)
 
-Make sure you have added AWS secrets to your specific repository or organization. 
+#### Make sure you have added AWS secrets to your specific repository or organization.
+
 ![Imgur](https://i.imgur.com/SQlTRZm.jpg)
 
-Make sure you have a `make file` in your project root directory which has all the commands to build your project.
+#### Make sure you have a `make file` in your project root directory which has all the commands to build your project.
+
 ![Imgur](https://i.imgur.com/KQVHWUo.jpg)
 
-Comment / Uncomment the following snippet if you don't need to install PHP or customize it as per your need. Use this to install any language or package you need.
+#### Comment / Uncomment the following snippet if you don't need to install PHP or customize it as per your need. Use this to install any language or package you need.
+
 ![Imgur](https://i.imgur.com/bumTO4E.jpg)
 
-Comment / Uncomment the following snippet if you don't need any Laravel Mix package to build production assets.
+#### Comment / Uncomment the following snippet if you don't need any Laravel Mix package to build production assets.
+
 ![Imgur](https://i.imgur.com/tE15aO8.jpg)
 
-This section sets up the node environment for you to run npm commands.
+#### This section sets up the node environment for you to run npm commands.
+
 ![Imgur](https://i.imgur.com/Q7kpKI9.jpg)
 
-This step allows you to read files at your root directory or local directory such as we use `make` file
+#### This step allows you to read files at your root directory or local directory such as we use `make` file
+
 ![Imgur](https://i.imgur.com/Ksf3sdy.jpg)
+
+# Private package repository in GitHub Actions
+
+1. Generate a new SSH key with sufficient access privileges. For security reasons, don't use your personal SSH key but set up a dedicated one for use in GitHub Actions. See below for a few hints if you are unsure about this step.
+2. Make sure you don't have a passphrase set on the private key.
+3. Add the public SSH key to the private repository you are pulling from during the Github Action as a 'Deploy Key'.
+4. Add the private SSH key to the repository triggering the Github Action:
+5. In your repository, go to the Settings > Secrets menu and create a new secret. In this example, we'll call it SSH_PRIVATE_KEY.
+6. Put the contents of the private SSH key file into the contents field.
+7. This key should start with -----BEGIN ... PRIVATE KEY-----, consist of many lines and ends with -----END ... PRIVATE KEY-----.
+8. In your workflow definition file, add the following step. Preferably this would be rather on top, near the actions/checkout@v2 line.
+
+![Imgur](https://i.imgur.com/W476gFj.jpg)
 
 # Customization
 
